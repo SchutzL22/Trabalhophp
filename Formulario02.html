@@ -1,0 +1,31 @@
+<?php
+    require_once 'includes/auth.php';
+    $ultimo_numero = $_COOKIE['ex02_numero'] ?? 'Nenhum';
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 2 - Tabuada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-info">
+        <span>Logado como: <strong><?php echo $_SESSION['usuario']; ?></strong></span>
+        <a href="logout.php">(Sair)</a>
+    </div>
+
+    <div class="container">
+        <h2>Exercício 2 - Tabuada de um Número</h2>
+        <p><strong><?php echo $ultimo_numero; ?></strong></p>
+        
+        <form action="Exercicio02.php" method="post">
+            <label for="numero">Digite um número inteiro para ver a tabuada:</label><br>
+            <input type="number" id="numero" name="numero" required><br><br>
+            <button type="submit">Gerar Tabuada</button>
+        </form>
+        <br>
+        <a href="index.php">Voltar para a página inicial</a>
+    </div>
+</body>
+</html>

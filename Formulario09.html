@@ -1,0 +1,35 @@
+<?php
+    require_once 'includes/auth.php';
+    $ultimo_verificado = $_COOKIE['ex09_ultimo'] ?? 'Nenhum';
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 9 - Maioridade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-info">
+        <span>Logado como: <strong><?php echo $_SESSION['usuario']; ?></strong></span>
+        <a href="logout.php">(Sair)</a>
+    </div>
+
+    <div class="container">
+        <h2>Exercício 9 - Verificação de Maioridade</h2>
+        <p><strong><?php echo $ultimo_verificado; ?></strong></p>
+        
+        <form action="Exercicio09.php" method="post">
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="nome" name="nome" required><br><br>
+
+            <label for="idade">Idade:</label><br>
+            <input type="number" id="idade" name="idade" min="0" required><br><br>
+
+            <button type="submit">Verificar</button>
+        </form>
+        <br>
+        <a href="index.php">Voltar para a página inicial</a>
+    </div>
+</body>
+</html>

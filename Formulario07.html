@@ -1,0 +1,35 @@
+<?php
+    require_once 'includes/auth.php';
+    $ultimos_valores = $_COOKIE['ex07_ultimo'] ?? 'Nenhum';
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 7 - Comparar A e B</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-info">
+        <span>Logado como: <strong><?php echo $_SESSION['usuario']; ?></strong></span>
+        <a href="logout.php">(Sair)</a>
+    </div>
+
+    <div class="container">
+        <h2>Exercício 7 - Comparação de Valores A e B</h2>
+        <p><strong><?php echo $ultimos_valores; ?></strong></p>
+        
+        <form action="Exercicio07.php" method="post">
+            <label for="valorA">Valor A:</label><br>
+            <input type="number" step="any" id="valorA" name="valorA" required><br><br>
+
+            <label for="valorB">Valor B:</label><br>
+            <input type="number" step="any" id="valorB" name="valorB" required><br><br>
+
+            <button type="submit">Comparar</button>
+        </form>
+        <br>
+        <a href="index.php">Voltar para a página inicial</a>
+    </div>
+</body>
+</html>

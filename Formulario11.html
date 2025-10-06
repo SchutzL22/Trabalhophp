@@ -1,0 +1,41 @@
+<?php
+    require_once 'includes/auth.php';
+    $ultimo_aluno = $_COOKIE['ex11_ultimo_aluno'] ?? 'Nenhum';
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 11 - Cadastro de Aluno</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-info">
+        <span>Logado como: <strong><?php echo $_SESSION['usuario']; ?></strong></span>
+        <a href="logout.php">(Sair)</a>
+    </div>
+
+    <div class="container">
+        <h2>Exercício 11 - Cadastrar Aluno para Atividades Complementares</h2>
+        <p><strong><?php echo $ultimo_aluno; ?></strong></p>
+        
+        <form action="Exercicio11cadastro.php" method="post">
+            <label>Nome do Aluno:</label><input type="text" name="nome" required>
+            <label>Matrícula:</label><input type="text" name="matricula" required>
+            <label>Curso:</label><input type="text" name="curso">
+            <label>E-mail:</label><input type="email" name="email">
+            <label>Telefone:</label><input type="text" name="telefone">
+            <label>Endereço:</label><input type="text" name="endereco">
+            <label>CEP:</label><input type="text" name="cep">
+            <label>Cidade:</label><input type="text" name="cidade">
+            <label>UF:</label><input type="text" name="uf" maxlength="2">
+            <label>Curso para Horas Complementares:</label><input type="text" name="curso_horas">
+            <label>Carga Horária Inicial:</label><input type="number" name="carga_horaria" value="0">
+            <button type="submit">Cadastrar Aluno</button>
+        </form>
+        <hr>
+        <a href="Formulario11_atualiza.html">Ir para Atualização de Carga Horária</a><br>
+        <a href="index.php">Voltar para a página inicial</a>
+    </div>
+</body>
+</html>

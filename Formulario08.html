@@ -1,0 +1,38 @@
+<?php
+    require_once 'includes/auth.php';
+    $ultima_media = $_COOKIE['ex08_media'] ?? 'Nenhuma';
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 8 - Média SGA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-info">
+        <span>Logado como: <strong><?php echo $_SESSION['usuario']; ?></strong></span>
+        <a href="logout.php">(Sair)</a>
+    </div>
+
+    <div class="container">
+        <h2>Exercício 8 - Cálculo da Média Final (SGA)</h2>
+        <p><strong><?php echo $ultima_media; ?></strong></p>
+        
+        <form action="Exercicio08.php" method="post">
+            <label for="nota1">Nota A1 (Peso 2):</label><br>
+            <input type="number" step="0.1" min="0" max="10" id="nota1" name="nota1" required><br><br>
+
+            <label for="nota2">Nota A2 (Peso 2):</label><br>
+            <input type="number" step="0.1" min="0" max="10" id="nota2" name="nota2" required><br><br>
+
+            <label for="nota3">Nota A3 (Peso 1):</label><br>
+            <input type="number" step="0.1" min="0" max="10" id="nota3" name="nota3" required><br><br>
+
+            <button type="submit">Calcular Média</button>
+        </form>
+        <br>
+        <a href="index.php">Voltar para a página inicial</a>
+    </div>
+</body>
+</html>

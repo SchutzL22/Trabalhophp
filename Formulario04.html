@@ -1,0 +1,45 @@
+<?php
+    require_once 'includes/auth.php';
+    $ultimo_calculo = $_COOKIE['ex04_ultimo'] ?? 'Nenhum';
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 4 - Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-info">
+        <span>Logado como: <strong><?php echo $_SESSION['usuario']; ?></strong></span>
+        <a href="logout.php">(Sair)</a>
+    </div>
+
+    <div class="container">
+        <h2>Exercício 4 - Calculadora com Switch Case</h2>
+        <p><strong><?php echo $ultimo_calculo; ?></strong></p>
+        
+        <form action="Exercicio04.php" method="post">
+            <label for="num1">Número 1:</label><br>
+            <input type="number" step="any" id="num1" name="num1" required><br><br>
+
+            <label for="operacao">Operação:</label><br>
+            <select id="operacao" name="operacao">
+                <option value="soma">+</option>
+                <option value="subtracao">-</option>
+                <option value="multiplicacao">*</option>
+                <option value="divisao">/</option>
+                <option value="potencia">^ (Potência)</option>
+                <option value="raiz">√ (Raiz Quadrada)</option>
+            </select><br><br>
+
+            <label for="num2">Número 2 (não necessário para raiz quadrada):</label><br>
+            <input type="number" step="any" id="num2" name="num2"><br><br>
+
+            <button type="submit">Calcular</button>
+        </form>
+        <br>
+        <a href="index.php">Voltar para a página inicial</a>
+    </div>
+</body>
+</html>

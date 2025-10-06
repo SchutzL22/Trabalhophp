@@ -1,0 +1,35 @@
+<?php
+    require_once 'includes/auth.php';
+    $ultimo_resultado = $_COOKIE['ex06_ultimo'] ?? 'Nenhum';
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 6 - Ordem Crescente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-info">
+        <span>Logado como: <strong><?php echo $_SESSION['usuario']; ?></strong></span>
+        <a href="logout.php">(Sair)</a>
+    </div>
+
+    <div class="container">
+        <h2>Exercício 6 - Impressão de Valores em Ordem Crescente</h2>
+        <p><strong><?php echo $ultimo_resultado; ?></strong></p>
+        
+        <form action="Exercicio06.php" method="post">
+            <label>Digite 5 números:</label><br>
+            <input type="number" step="any" name="num1" required placeholder="Primeiro número"><br>
+            <input type="number" step="any" name="num2" required placeholder="Segundo número"><br>
+            <input type="number" step="any" name="num3" required placeholder="Terceiro número"><br>
+            <input type="number" step="any" name="num4" required placeholder="Quarto número"><br>
+            <input type="number" step="any" name="num5" required placeholder="Quinto número"><br><br>
+            <button type="submit">Ordenar Números</button>
+        </form>
+        <br>
+        <a href="index.php">Voltar para a página inicial</a>
+    </div>
+</body>
+</html>
